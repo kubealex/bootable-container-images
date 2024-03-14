@@ -9,6 +9,7 @@
 ## What are bootable containers?
 
 As the name suggests, bootable containers differ from general purpose containers as the underlying image they use contains all necessary bits to make it act exactly like a standard OS, including modules, systemd, etc.
+They use specific tailored base images that include a Linux kernel and upon boot *systemd* is running as pid1 as in a "standard" OS.
 
 ### How are they different?
 
@@ -25,7 +26,7 @@ Some of the main features are:
 
 ## Let's get started
 
-Creating a bootable container is as easy as writing and running a Containerfile like this:
+Creating a bootable container is as easy as writing and running a Containerfile like this, in this case using a CentOS Stream 9 base image:
 
 ```dockerfile
 FROM quay.io/centos-bootc/centos-bootc:stream9
@@ -39,8 +40,15 @@ You can proceed customizing the image, adding users, packages, configurations, e
 
 In this repo you will find some use cases that explain and show bootable containers in action!
 
+### Getting started with bootable containers
+
 - [Simple bootc container](./use-cases/simple-bootc-container/)
 - [Bootc container with Apache](./use-cases/httpd-bootc-container/)
+
+### Managing VM lifecycle with bootable containers
+
+- [Use a bootc container to spin up a CentOS 9 Stream VM with Anaconda and Kickstart](./use-cases/anaconda-ks-bootc-container/)
+
 
 ## Resources
 
