@@ -12,13 +12,13 @@ The Containerfile in the example:
 To build the image:
 
 ```bash
-podman build -f Containerfile.simple -t bootc-simple-image .
+podman build -f Containerfile.simple -t bootc-simple .
 ```
 
 You can now run it using:
 
 ```bash
-podman run -it --name bootc-container --hostname bootc-container -p 2022:22 bootc-simple-image
+podman run -it --name bootc-container --hostname bootc-container -p 2022:22 bootc-simple
 ```
 
 Note: The *"-p 2022:22"* part forwards the container's SSH port to the host 2022 port.
