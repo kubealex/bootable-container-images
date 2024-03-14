@@ -40,7 +40,7 @@ You can proceed customizing the image, adding users, packages, configurations, e
 In this repo you will find some use cases that explain and show bootable containers in action!
 
 - [Simple bootc container](./use-cases/simple-bootc-container/)
-
+- [Bootc container with Apache](./use-cases/httpd-bootc-container/)
 
 ## Resources
 
