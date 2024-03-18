@@ -1,6 +1,6 @@
 # Use Case - Running a bootc container providing Apache HTTP server
 
-In this example, we will build a container image from a Containerfile and we will use it as a source for an
+In this example, we will build a container image from a Containerfile and we will then use it as a source for a VM.
 
 The Containerfile in the example:
 
