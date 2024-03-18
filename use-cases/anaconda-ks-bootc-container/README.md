@@ -24,7 +24,7 @@ During the configuration I will be using my username, *kubealex*, for the demo.
 You can build the image right from the Containerfile using Podman:
 
 ```bash
-podman build -f Containerfile.anaconda -t centos-bootc-vm .
+podman build -f Containerfile.anaconda -t centos-bootc-vm:httpd .
 ```
 
 ## Tagging and pushing the image
@@ -37,7 +37,7 @@ export QUAY_USER=YOURQUAYUSERNAME
 ```
 
 ```bash
-podman tag centos-bootc-vm quay.io/$QUAY_USER/centos-bootc-vm
+podman tag centos-bootc-vm quay.io/$QUAY_USER/centos-bootc-vm:httpd
 ```
 
 Log-in to Quay.io:
@@ -49,7 +49,7 @@ podman login -u $QUAY_USER quay.io
 And push the image:
 
 ```bash
-podman push quay.io/$QUAY_USER/centos-bootc-vm
+podman push quay.io/$QUAY_USER/centos-bootc-vm:httpd
 ```
 
 You can now browse to [https://quay.io/repository/YOURQUAYUSERNAME/centos-bootc-httpd?tab=settings](https://quay.io/repository/YOURQUAYUSERNAME/centos-bootc-httpd?tab=settings) and ensure that the repository is set to **"Public"**.
