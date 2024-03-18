@@ -27,7 +27,7 @@ podman build -f Containerfile.httpd -t centos-bootc-httpd .
 You can now test it using:
 
 ```bash
-podman run -it --name centos-bootc-bootc --hostname centos-bootc-bootc -p 8080:80 centos-bootc-httpd
+podman run -it --name centos-bootc-httpd --hostname centos-bootc-httpd -p 8080:80 centos-bootc-httpd
 ```
 
 Note: The *"-p 8080:80"* part forwards the container's *http* port to the port 8080 on the host to test that it is working.
