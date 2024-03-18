@@ -49,6 +49,7 @@ In this repo you will find some use cases that explain and show bootable contain
 
 - [Use a bootc container to spin up a CentOS 9 Stream VM with Anaconda and Kickstart](./use-cases/anaconda-ks-bootc-container/)
 - [Upgrade a VM based on bootc container as a source adding packages and configuration](./use-cases/upgrade-bootc-container/)
+- [Change the ostree image of a running VM based on bootc](./use-cases/replace-bootc-container/)
 
 ## Resources
 
