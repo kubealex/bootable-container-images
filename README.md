@@ -6,6 +6,8 @@
 - [Use Cases](#use-cases)
    * [Getting started with bootable containers](#getting-started-with-bootable-containers)
    * [Managing VM lifecycle with bootable containers](#managing-vm-lifecycle-with-bootable-containers)
+   * [Generate and deploy VM Images, AMI and ISO images with bootc-image-builder](#generate-and-deploy-vm-images-ami-and-iso-images-with-bootc-image-builder)
+
 - [Resources](#resources)
 
 ## What are bootable containers?
@@ -50,8 +52,12 @@ In this repo you will find some use cases that explain and show bootable contain
 ### Managing VM lifecycle with bootable containers
 
 - [Use a bootc container to spin up a CentOS 9 Stream VM with Anaconda and Kickstart](./use-cases/anaconda-ks-bootc-container/)
-- [Upgrade a VM based on bootc container as a source adding packages and configuration](./use-cases/upgrade-bootc-container/)
+- [Update a VM based on bootc container as a source adding packages and configuration](./use-cases/upgrade-bootc-container/)
 - [Change the ostree image of a running VM based on bootc](./use-cases/replace-bootc-container/)
+
+### Generate and deploy VM Images, AMI and ISO images with bootc-image-builder
+
+- [Generate a QCOW image for a VM using bootc-image-builder](./use-cases/image-builder-bootc-container/)
 
 ## Resources
 
