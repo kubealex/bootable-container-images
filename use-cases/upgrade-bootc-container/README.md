@@ -21,12 +21,14 @@ But it will add the following two steps, resulting in a different image with an 
 **- Add mariadb-server package and vim**
 **- Enable the mariadb systemd unit**
 
+Since the *bootc update* command will preserve the /var and /etc content, we will use a workaround to create the needed dirs for MariaDB leveraging [systemd-tmpfiles](./files/00-mariadb-tmpfile.conf).
+
 ## Building the image
 
 You can build the image right from the Containerfile using Podman:
 
 ```bash
-podman build -f Containerfile.upgrade -t centos-bootc-vm .
+podman build -f Containerfile.upgrade -t centos-bootc-vm:httpd .
 ```
 
 ## Testing the image
@@ -34,7 +36,7 @@ podman build -f Containerfile.upgrade -t centos-bootc-vm .
 You can now test it using:
 
 ```bash
-podman run -it --name centos-bootc-vm --hostname centos-bootc-vm -p 8080:80 -p 3306:3306 centos-bootc-vm
+podman run -it --name centos-bootc-vm --hostname centos-bootc-vm -p 8080:80 -p 3306:3306 centos-bootc-vm:httpd
 ```
 
 Note: The *"-p 8080:80" -p 3306:3306* part forwards the container's *http* and *mariadb* port to the port 8080 and 3306 on the host to test that httpd and mariadb are working.
@@ -88,7 +90,7 @@ export QUAY_USER=YOURQUAYUSERNAME
 ```
 
 ```bash
-podman tag centos-bootc-vm quay.io/$QUAY_USER/centos-bootc-vm
+podman tag centos-bootc-vm:httpd quay.io/$QUAY_USER/centos-bootc-vm:httpd
 ```
 
 Log-in to Quay.io:
@@ -100,7 +102,7 @@ podman login -u $QUAY_USER quay.io
 And push the image:
 
 ```bash
-podman push quay.io/$QUAY_USER/centos-bootc-vm
+podman push quay.io/$QUAY_USER/centos-bootc-vm:httpd
 ```
 
 You can now browse to [https://quay.io/repository/YOURQUAYUSERNAME/centos-bootc-httpd?tab=settings](https://quay.io/repository/YOURQUAYUSERNAME/centos-bootc-httpd?tab=settings) and ensure that the repository is set to **"Public"**.
@@ -113,9 +115,9 @@ You can now browse to [https://quay.io/repository/YOURQUAYUSERNAME/centos-bootc-
 The first thing to do is logging in the VM created in the [previous use case](../anaconda-ks-bootc-container/):
 
 ```bash
- ~ ▓▒░ ssh bootc-user@192.168.150.39
-Warning: Permanently added '192.168.150.39' (ED25519) to the list of known hosts.
-bootc-user@192.168.150.39's password:
+ ~ ▓▒░ ssh bootc-user@192.168.150.228
+Warning: Permanently added '192.168.150.228' (ED25519) to the list of known hosts.
+bootc-user@192.168.150.228's password:
 This is a CentOS Stream 9 VM installed using a bootable container as an rpm-ostree source!
 Last login: Sat Mar 16 15:13:05 2024
 [bootc-user@localhost ~]$
@@ -147,7 +149,7 @@ Options:
 ```
 
 Note that among the options we have the **upgrade** option that we will be using in this use case.
-The upgrade option allows checking, fetching and using any updated container image corresponding to the *imagename:tag* we used, in this case **quay.io/YOURQUAYUSERNAME/centos-bootc-vm:latest**
+The upgrade option allows checking, fetching and using any updated container image corresponding to the *imagename:tag* we used, in this case **quay.io/YOURQUAYUSERNAME/centos-bootc-vm:httpd**
 
 The upgrade command requires higher privileges to run, let's perform the upgrade!
 
@@ -155,7 +157,7 @@ The upgrade command requires higher privileges to run, let's perform the upgrade
 [bootc-user@localhost ~]$ sudo bootc upgrade
 layers already present: 71; layers needed: 1 (78.9 MB)
  75.25 MiB [████████████████████] (0s) Fetched layer sha256:12ee1bb92676                                                                                                                                                                                                                                                                                                                                        Loading usr/lib/ostree/prepare-root.conf
-Queued for next boot: ostree-unverified-registry:quay.io/kubealex/centos-bootc-vm
+Queued for next boot: ostree-unverified-registry:quay.io/kubealex/centos-bootc-vm:httpd
   Version: stream9.20240311.0
   Digest: sha256:4a11bb47173188a0ff8c9fc65be45c802a7df2d32b662fba2445b589312e0cd4
 Total new layers: 72    Size: 1.0 GB
@@ -176,8 +178,8 @@ Unit mariadb.service could not be found.
 Let's log back in!
 
 ```bash
- ~ ▓▒░ ssh bootc-user@192.168.150.39
-bootc-user@192.168.150.39's password:
+ ~ ▓▒░ ssh bootc-user@192.168.150.228
+bootc-user@192.168.150.228's password:
 This is a CentOS Stream 9 VM installed using a bootable container as an rpm-ostree source!
 This server now supports MariaDB as a database, after last update
 Last login: Sat Mar 16 15:40:55 2024 from 192.168.150.1
