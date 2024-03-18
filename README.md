@@ -15,6 +15,8 @@
 As the name suggests, bootable containers differ from general purpose containers as the underlying image they use contains all necessary bits to make it act exactly like a standard OS, including modules, systemd, etc.
 They use specific tailored base images that include a Linux kernel and upon boot *systemd* is running as pid1 as in a "standard" OS.
 
+Read more in the [mission statement](https://containers.github.io/bootable/)
+
 ### How are they different?
 
 Bootable containers can enable a 360° integrated container-native workflow that covers the underlying OS up to the application layer.
@@ -22,7 +24,7 @@ They benefit of a set of dedicated tools (bootc, bootc-image-builder, etc) to co
 
 Some of the main features are:
 
-- Bootable containers goal is to act as a traditional OS, initializing all components upon container start.
+- Bootable containers goal is to provide a way to deploy and manage immutable image-based Linux systems
 - Bootable containers images can act as a source to build VMs/Cloud images.
 - Bootable containers images can be used as a source to install and configure a new server/VM using kickstart/Anaconda
 - Bootable containers simplify testing applications on different architectures/platforms
@@ -34,11 +36,10 @@ Creating a bootable container is as easy as writing and running a Containerfile 
 
 ```dockerfile
 FROM quay.io/centos-bootc/centos-bootc:stream9
-CMD [ "/sbin/init" ] # optional, to init the system upon container start-up.
+CMD [ "/sbin/init" ]
 ```
 
 You can proceed customizing the image, adding users, packages, configurations, etc following the [Dockerfile Reference](https://docs.docker.com/reference/dockerfile/)
-
 
 ## Use Cases
 
@@ -60,6 +61,8 @@ In this repo you will find some use cases that explain and show bootable contain
 - [Generate a QCOW image for a VM using bootc-image-builder](./use-cases/image-builder-bootc-container/)
 
 ## Resources
+
+- [Bootable containers mission statement](https://containers.github.io/bootable/)
 
 - [bootc project on GitHub](https://github.com/containers/bootc)
 - [bootc documentation](https://containers.github.io/bootc/)
