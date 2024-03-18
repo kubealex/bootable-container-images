@@ -1,9 +1,11 @@
-# Introducing bootable containers!
+# 🏗️🏗️ Introducing bootable containers! 🏗️🏗️
 
-- [What are bootable containers?](#what-are-bootable-containers-)
-  * [How are they different?](#how-are-they-different-)
-- [Let's get started](#let-s-get-started)
+- [What are bootable containers?](#what-are-bootable-containers)
+   * [How are they different?](#how-are-they-different)
+- [🎯🎯 Let's get started 🎯🎯](#-lets-get-started-)
 - [Use Cases](#use-cases)
+   * [Getting started with bootable containers](#getting-started-with-bootable-containers)
+   * [Managing VM lifecycle with bootable containers](#managing-vm-lifecycle-with-bootable-containers)
 - [Resources](#resources)
 
 ## What are bootable containers?
@@ -24,7 +26,7 @@ Some of the main features are:
 - Bootable containers simplify testing applications on different architectures/platforms
 - Bootable containers streamline OS updates leveraging the [rpm-ostree system](https://coreos.github.io/rpm-ostree/)
 
-## Let's get started
+## 🎯🎯 Let's get started 🎯🎯
 
 Creating a bootable container is as easy as writing and running a Containerfile like this, in this case using a CentOS Stream 9 base image:
 
