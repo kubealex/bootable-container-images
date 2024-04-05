@@ -15,7 +15,8 @@
 As the name suggests, bootable container images differ from general purpose containers as the underlying image they use contains all necessary bits to make it act exactly like a standard OS, including modules, systemd, etc.
 They use specific tailored base images that include a Linux kernel and upon boot *systemd* is running as pid1 as in a "standard" OS.
 
-Read more in the [mission statement](https://containers.github.io/bootable/)
+> [!TIP]
+> Read more in the [mission statement](https://containers.github.io/bootable/)
 
 ### How are they different?
 
