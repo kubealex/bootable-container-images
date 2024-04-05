@@ -1,34 +1,34 @@
-# 🏗️🏗️ Introducing bootable containers! 🏗️🏗️
+# 🏗️🏗️ Introducing bootable container images! 🏗️🏗️
 
-- [What are bootable containers?](#what-are-bootable-containers)
+- [What are bootable container images?](#what-are-bootable-containers)
    * [How are they different?](#how-are-they-different)
 - [🎯🎯 Let's get started 🎯🎯](#-lets-get-started-)
 - [Use Cases](#use-cases)
-   * [Getting started with bootable containers](#getting-started-with-bootable-containers)
-   * [Managing VM lifecycle with bootable containers](#managing-vm-lifecycle-with-bootable-containers)
+   * [Getting started with bootable container images](#getting-started-with-bootable-containers)
+   * [Managing VM lifecycle with bootable container images](#managing-vm-lifecycle-with-bootable-containers)
    * [Generate and deploy VM Images, AMI and ISO images with bootc-image-builder](#generate-and-deploy-vm-images-ami-and-iso-images-with-bootc-image-builder)
 
 - [Resources](#resources)
 
-## What are bootable containers?
+## What are bootable container images?
 
-As the name suggests, bootable containers differ from general purpose containers as the underlying image they use contains all necessary bits to make it act exactly like a standard OS, including modules, systemd, etc.
+As the name suggests, bootable container images differ from general purpose containers as the underlying image they use contains all necessary bits to make it act exactly like a standard OS, including modules, systemd, etc.
 They use specific tailored base images that include a Linux kernel and upon boot *systemd* is running as pid1 as in a "standard" OS.
 
 Read more in the [mission statement](https://containers.github.io/bootable/)
 
 ### How are they different?
 
-Bootable containers can enable a 360° integrated container-native workflow that covers the underlying OS up to the application layer.
+Bootable container images can enable a 360° integrated container-native workflow that covers the underlying OS up to the application layer.
 They benefit of a set of dedicated tools (bootc, bootc-image-builder, etc) to compose, build and distribute images that can be defined using common Containerfile structure and instructions.
 
 Some of the main features are:
 
-- Bootable containers goal is to provide a way to deploy and manage immutable image-based Linux systems
-- Bootable containers images can act as a source to build VMs/Cloud images.
-- Bootable containers images can be used as a source to install and configure a new server/VM using kickstart/Anaconda
-- Bootable containers simplify testing applications on different architectures/platforms
-- Bootable containers streamline OS updates leveraging the [rpm-ostree system](https://coreos.github.io/rpm-ostree/)
+- Bootable container images goal is to provide a way to deploy and manage immutable image-based Linux systems
+- Bootable container images images can act as a source to build VMs/Cloud images.
+- Bootable container images images can be used as a source to install and configure a new server/VM using kickstart/Anaconda
+- Bootable container images simplify testing applications on different architectures/platforms
+- Bootable container images streamline OS updates leveraging the [rpm-ostree system](https://coreos.github.io/rpm-ostree/)
 
 ## 🎯🎯 Let's get started 🎯🎯
 
@@ -43,14 +43,14 @@ You can proceed customizing the image, adding users, packages, configurations, e
 
 ## Use Cases
 
-In this repo you will find some use cases that explain and show bootable containers in action!
+In this repo you will find some use cases that explain and show bootable container images in action!
 
-### Getting started with bootable containers
+### Getting started with bootable container images
 
 - [Simple bootc container](./use-cases/simple-bootc-container/)
 - [Bootc container with Apache](./use-cases/httpd-bootc-container/)
 
-### Managing VM lifecycle with bootable containers
+### Managing VM lifecycle with bootable container images
 
 - [Use a bootc container to spin up a CentOS 9 Stream VM with Anaconda and Kickstart](./use-cases/anaconda-ks-bootc-container/)
 - [Update a VM based on bootc container as a source adding packages and configuration](./use-cases/upgrade-bootc-container/)
@@ -62,7 +62,7 @@ In this repo you will find some use cases that explain and show bootable contain
 
 ## Resources
 
-- [Bootable containers mission statement](https://containers.github.io/bootable/)
+- [Bootable container images mission statement](https://containers.github.io/bootable/)
 
 - [bootc project on GitHub](https://github.com/containers/bootc)
 - [bootc documentation](https://containers.github.io/bootc/)
